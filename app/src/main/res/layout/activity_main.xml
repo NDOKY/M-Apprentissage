@@ -1,242 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textViewEtablissement"
-        android:layout_width="91dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="30dp"
-        android:text="Établissement"
-        android:textAlignment="viewStart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
+    android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextTextTitre"
-        android:layout_width="218dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="48dp"
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="518dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewTitre"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextNom" />
+        android:text="Name"
+        android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/textViewTitre"
-        android:layout_width="64dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="39dp"
-        android:text="Titre"
-        android:textAlignment="viewStart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNom" />
-
-    <EditText
-        android:id="@+id/editTextTextNom"
-        android:layout_width="218dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="48dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewNom"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPrenom" />
-
-    <TextView
-        android:id="@+id/textViewNom"
-        android:layout_width="64dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="24dp"
-        android:text="Nom"
-        android:textAlignment="viewStart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPrenom" />
-
-    <EditText
-        android:id="@+id/editTextTextEtablissement"
-        android:layout_width="218dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="48dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewEtablissement"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextTitre" />
-
-    <EditText
-        android:id="@+id/editTextTextPrenom"
-        android:layout_width="218dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="48dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewPrenom"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInscription" />
-
-    <TextView
-        android:id="@+id/textViewPrenom"
-        android:layout_width="64dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="62dp"
-        android:text="Prénom"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInscription" />
-
-    <ImageView
-        android:id="@+id/imageViewLogoApp"
-        android:layout_width="123dp"
-        android:layout_height="106dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="150dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textViewInscription"
-        android:layout_width="311dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="45dp"
-        android:text="INSCRIPTION"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewLogoApp" />
-
-    <TextView
-        android:id="@+id/textViewCourriel"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="39dp"
-        android:text="Courriel"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEtablissement" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="216dp"
-        android:layout_height="65dp"
-        android:layout_marginEnd="48dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="551dp" />
+        android:id="@+id/textViewPassWordConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="432dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="249dp"
+        android:text="Confirmation mot de passe" />
 
     <TextView
         android:id="@+id/textViewPassWord"
-        android:layout_width="77dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="39dp"
-        android:text="Mot de passe"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCourriel" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="218dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="48dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewPassWord"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="375dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="307dp"
+        android:text="Mot de passe" />
 
     <TextView
-        android:id="@+id/textViewConfirmationPassWord"
-        android:layout_width="71dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="39dp"
-        android:text="Confirmer mot de passe"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPassWord" />
+        android:id="@+id/textViewCourriel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="327dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="372dp"
+        android:text="Courriel" />
 
-    <EditText
-        android:id="@+id/editTextTextConfirmationPassword"
-        android:layout_width="215dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="48dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewConfirmationPassWord"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+    <TextView
+        android:id="@+id/textViewTitre"
+        android:layout_width="85dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="234dp"
+        android:layout_marginEnd="296dp"
+        android:layout_marginBottom="465dp"
+        android:text="Titre" />
 
-    <Button
-        android:id="@+id/buttonInscription"
+    <TextView
+        android:id="@+id/textViewEtablissement"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="281dp"
+        android:layout_marginEnd="281dp"
+        android:layout_marginBottom="418dp"
+        android:text="Établissement" />
+
+    <TextView
+        android:id="@+id/textViewNom"
+        android:layout_width="85dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="296dp"
+        android:layout_marginBottom="511dp"
+        android:text="Nom" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="57dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="181dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="657dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="150dp"
-        android:background="@android:color/darker_gray"
-        android:text="S'inscrire"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextConfirmationPassword" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="606dp"
+        android:text="INSCRIPTION"
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textViewExistanceUtilisateur"
-        android:layout_width="231dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:text="Utilisateur existant? Connectez-vous"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonInscription" />
+        android:id="@+id/textViewPrenom"
+        android:layout_width="85dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="143dp"
+        android:layout_marginEnd="296dp"
+        android:layout_marginBottom="556dp"
+        android:text="Prénom" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="561dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="79dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textAlignment="center" />
+</RelativeLayout>
