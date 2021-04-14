@@ -7,105 +7,38 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
+        android:id="@+id/editTextTextEtablissement"
+        android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="168dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="518dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="326dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="360dp"
         android:ems="10"
+        android:hint="Établissement"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:textAlignment="center" />
+        android:textAlignment="viewStart" />
 
-    <TextView
-        android:id="@+id/textViewPassWordConfirm"
-        android:layout_width="wrap_content"
-        android:layout_height="49dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="432dp"
-        android:layout_marginEnd="280dp"
-        android:layout_marginBottom="249dp"
-        android:text="Confirmation mot de passe" />
-
-    <TextView
-        android:id="@+id/textViewPassWord"
-        android:layout_width="wrap_content"
-        android:layout_height="49dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="375dp"
-        android:layout_marginEnd="280dp"
-        android:layout_marginBottom="307dp"
-        android:text="Mot de passe" />
-
-    <TextView
-        android:id="@+id/textViewCourriel"
-        android:layout_width="100dp"
+    <EditText
+        android:id="@+id/editTextTextNom"
+        android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="327dp"
-        android:layout_marginEnd="280dp"
-        android:layout_marginBottom="372dp"
-        android:text="Courriel" />
-
-    <TextView
-        android:id="@+id/textViewTitre"
-        android:layout_width="85dp"
-        android:layout_height="32dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="234dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="465dp"
-        android:text="Titre" />
-
-    <TextView
-        android:id="@+id/textViewEtablissement"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="281dp"
-        android:layout_marginEnd="281dp"
-        android:layout_marginBottom="418dp"
-        android:text="Établissement" />
-
-    <TextView
-        android:id="@+id/textViewNom"
-        android:layout_width="85dp"
-        android:layout_height="32dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="511dp"
-        android:text="Nom" />
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="203dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="481dp"
+        android:ems="10"
+        android:hint="Nom"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -137,34 +70,98 @@
         android:textAlignment="center"
         android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/textViewPrenom"
-        android:layout_width="85dp"
-        android:layout_height="32dp"
+    <EditText
+        android:id="@+id/editTextTextPrenom"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="143dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="556dp"
-        android:text="Prénom" />
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="146dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="546dp"
+        android:ems="10"
+        android:hint="Prénom"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextTextTitre"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="265dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="421dp"
+        android:ems="10"
+        android:hint="Titre"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="125dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="561dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="386dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="300dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textAlignment="center" />
+        android:hint="Courriel"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="238dp"
+        android:ems="10"
+        android:hint="Choisir un mot de passe"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttonInscription"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="107dp"
+        android:layout_marginBottom="163dp"
+        android:text="S'inscrire" />
+
+    <TextView
+        android:id="@+id/textViewUserConnect"
+        android:layout_width="266dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="589dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="97dp"
+        android:clickable="true"
+        android:text="Utilisateur existant? Connectez-vous" />
 </RelativeLayout>
