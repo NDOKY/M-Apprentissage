@@ -17,7 +17,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        />
 
     <TextView
         android:id="@+id/textView"
@@ -50,10 +51,11 @@
         app:cornerRadius="8dp"
         app:strokeColor="@color/white"
         app:strokeWidth="2dp"
-        app:rippleColor="#33AAAAAA"/>
+        app:rippleColor="#33AAAAAA"
+        android:onClick="openConnexion"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button3"
+        android:id="@+id/inscriptionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -67,21 +69,22 @@
         android:textColor="@color/black"
         app:cornerRadius="8dp"
         app:strokeColor="@color/white"
-        app:strokeWidth="2dp" />
+        app:strokeWidth="2dp"
+        android:onClick="openSignIn"/>
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="181dp"
+        android:layout_height="164dp"
         android:layout_above="@+id/textView"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="146dp"
+        android:layout_marginStart="117dp"
         android:layout_marginTop="54dp"
-        android:layout_marginEnd="137dp"
-        android:layout_marginBottom="99dp"
-        tools:srcCompat="@drawable/logo_projet" />
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="62dp"
+        android:src="@drawable/logo_projet" />
 
 
 </RelativeLayout>
