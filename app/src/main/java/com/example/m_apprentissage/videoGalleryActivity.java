@@ -23,7 +23,11 @@ public class videoGalleryActivity extends AppCompatActivity {
         arrayList.add("C Language");
         arrayList.add("CPP Language");
         arrayList.add("Go Language");
+<<<<<<< HEAD
         arrayList.add("PHP");
+=======
+        arrayList.add("AVN SYSTEMS");
+>>>>>>> e9194a4 (Ajout du videoActivity.java)
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         list.setAdapter(arrayAdapter);
 
