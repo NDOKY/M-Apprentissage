@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "89017991547",
+    "project_id": "m-apprentissage",
+    "storage_bucket": "m-apprentissage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89017991547:android:9b3a0b23de7705a178fdde",
+        "android_client_info": {
+          "package_name": "com.example.m_apprentissage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89017991547-dctdig0tkt44lvkvvvffo86b75fc9v9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrDfmXY9YgVHDkys9vQOGYo4YqUQuZ69E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89017991547-dctdig0tkt44lvkvvvffo86b75fc9v9e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
