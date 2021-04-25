@@ -10,16 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
+/*import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuth;*/
 
 public class ConnexionActivity extends AppCompatActivity {
 
     EditText mEmail, mPassword;
     Button mConnexion;
-    FirebaseAuth firebaseAuth;
+  //  FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +29,15 @@ public class ConnexionActivity extends AppCompatActivity {
         mEmail = findViewById(R.id.editTextEmailAddress);
         mPassword = findViewById(R.id.editTextPassword);
         mConnexion = findViewById(R.id.buttonConnexion);
-        firebaseAuth = FirebaseAuth.getInstance();
+    //    firebaseAuth = FirebaseAuth.getInstance();
     }
 
     public void ConnexionButton(View view){
         String email = mEmail.getText().toString().trim();
         String passWord = mPassword.getText().toString().trim();
 
-        firebaseAuth.signInWithEmailAndPassword(email,passWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
+      //  firebaseAuth.signInWithEmailAndPassword(email,passWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    /*        @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(ConnexionActivity.this, "User successful login", Toast.LENGTH_SHORT).show();
@@ -49,7 +49,7 @@ public class ConnexionActivity extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
 
     }
 }
