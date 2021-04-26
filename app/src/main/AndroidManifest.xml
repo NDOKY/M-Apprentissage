@@ -13,6 +13,7 @@
         android:theme="@style/Theme.MApprentissage"
         android:usesCleartextTraffic="true">
         <activity android:name=".ConnexionActivity"></activity>
+        <activity android:name=".videoGalleryActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

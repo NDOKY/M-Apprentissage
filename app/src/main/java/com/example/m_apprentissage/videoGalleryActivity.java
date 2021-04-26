@@ -16,6 +16,7 @@ public class videoGalleryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videogallery);
         final ListView list = findViewById(R.id.list);
+
         // String video = "";
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("JAVA");

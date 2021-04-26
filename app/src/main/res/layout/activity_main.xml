@@ -84,8 +84,8 @@
 
     <EditText
         android:id="@+id/editTextTextNom"
-        android:layout_width="276dp"
-        android:layout_height="53dp"
+        android:layout_width="274dp"
+        android:layout_height="54dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -104,7 +104,7 @@
 
     <EditText
         android:id="@+id/editTextTextTitre"
-        android:layout_width="276dp"
+        android:layout_width="274dp"
         android:layout_height="51dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -124,7 +124,7 @@
 
     <EditText
         android:id="@+id/editTextTextEtablissement"
-        android:layout_width="276dp"
+        android:layout_width="274dp"
         android:layout_height="48dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -144,7 +144,7 @@
 
     <EditText
         android:id="@+id/editTextEmailAddress"
-        android:layout_width="272dp"
+        android:layout_width="274dp"
         android:layout_height="52dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -162,7 +162,7 @@
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="272dp"
+        android:layout_width="274dp"
         android:layout_height="53dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"

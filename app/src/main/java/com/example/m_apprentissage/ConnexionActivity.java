@@ -21,6 +21,7 @@ public class ConnexionActivity extends AppCompatActivity {
     Button mConnexion;
     FirebaseAuth firebaseAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class ConnexionActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(ConnexionActivity.this, "User successful login", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
                 }
                 else{
                     Toast.makeText(ConnexionActivity.this, "ERROR", Toast.LENGTH_LONG).show();
