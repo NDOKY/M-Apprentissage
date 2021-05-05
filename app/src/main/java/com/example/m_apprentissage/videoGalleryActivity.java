@@ -1,5 +1,6 @@
 package com.example.m_apprentissage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -17,20 +18,19 @@ public class videoGalleryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_videogallery);
         final ListView list = findViewById(R.id.list);
 
-        // String video = "";
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("JAVA");
-        arrayList.add("ANDROID");
-        arrayList.add("C Language");
-        arrayList.add("CPP Language");
-        arrayList.add("Go Language");
-        arrayList.add("AVN SYSTEMS");
+        arrayList.add("PHP");
+        arrayList.add("CSharp");
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         list.setAdapter(arrayAdapter);
 
         list.setOnItemClickListener((parent, view, position, id) -> {
             String clickedItem = (String) list.getItemAtPosition(position);
-            Toast.makeText(videoGalleryActivity.this, clickedItem, Toast.LENGTH_LONG).show();
+            Intent listeVideoIntent = new Intent(getApplicationContext(), ListeVideoActivity.class);
+            listeVideoIntent.putExtra("COURS",clickedItem);
+            startActivity(listeVideoIntent);
         });
     }
 }
