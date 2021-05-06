@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,22 +23,19 @@ public class ListeVideoActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     String videoEnvoye;
     ListView listeVideo;
-    //String clickedItem;
+    BottomNavigationView bottomNavigationView;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_video);
-
-
         listeVideo = findViewById(R.id.listeVideo);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
         coursRecuperer = getExtra();
-        //Toast.makeText(getApplicationContext(),coursRecuperer, Toast.LENGTH_SHORT).show();
         InitListe();
-
-
-        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
-        //listeVideo.setAdapter(arrayAdapter);
+        bottomNavigationView.setSelectedItemId(R.id.accueil);
+        configureNavigationView();
 
         listeVideo.setOnItemClickListener((parent, view, position, id) -> {
             String clickedItem = (String) listeVideo.getItemAtPosition(position);
@@ -58,16 +57,11 @@ public class ListeVideoActivity extends AppCompatActivity {
                 }
             });
 
-
-
         });
 
+
+
     }
-
-
-
-
-
 
     public String getExtra(){
         return getIntent().getStringExtra("COURS");
@@ -80,4 +74,42 @@ public class ListeVideoActivity extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listeVideo.setAdapter(arrayAdapter);
     }
+    public void configureNavigationView(){
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+
+            switch (item.getItemId()){
+                case R.id.accueil:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.formations:
+                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                /*case R.id.reglages:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;*/
+            }
+            return false;
+        });
+
+        bottomNavigationView.setOnNavigationItemReselectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.accueil:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
+                    break;
+                case R.id.formations:
+                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    overridePendingTransition(0,0);
+                    break;
+                /*case R.id.reglages:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;*/
+            }
+        });
+    }
+
 }
