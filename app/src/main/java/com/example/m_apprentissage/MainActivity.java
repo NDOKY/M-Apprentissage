@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         btnConnexion = findViewById(R.id.buttonConnexion);
 
         btnConnexion.setOnClickListener(view -> {
+            //exist = false;
             strPrenom = prenom.getText().toString();
             strNom = nom.getText().toString();
             strTitre = titre.getText().toString();
@@ -103,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()){
                 Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();//toast en trop
                 ref.child(strNom + " " + strPrenom).setValue(user);
                 Intent in = new Intent(getApplicationContext(), videoGalleryActivity.class);
                 startActivity(in);
@@ -113,6 +113,51 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    /*public void updateDataBase(DatabaseReference reference){
+        reference.addValueEventListener(new ValueEventListener(){
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                for(DataSnapshot iSnapshot : snapshot.getChildren()){
+                    DataSnapshot snap = iSnapshot.child("courrielUser");
+                    String mail = snap.getValue(String.class);
+
+                    if (strEmail.equals(mail)){
+                        exist = true;
+                        //Toast.makeText(MainActivity.this, mail, Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                if(!exist){
+                    //message.cancel();
+                    //message.setText("Désolé cette adresse mail est deja utilisé");
+                    //message.show();
+                    compteur++;
+                    *//*ref.child(strNom + " " + strPrenom).setValue(user);
+                    Intent in = new Intent(getApplicationContext(), videoGalleryActivity.class);
+                    startActivity(in);
+                    createAccount(strEmail,strPassword);*//*
+                }
+                else {
+                   *//* compteur++;
+                    ref.child("User"+compteur).setValue(user);
+                    Intent in = new Intent(getApplicationContext(), VideoGalleryActivity.class);
+                    startActivity(in);
+                    createAccount(strEmail,strPassword);*//*
+                    //message.cancel();
+                    //message.setText("Merci pour votre inscription");
+                    //message.show();
+                }
+                //exist = false;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        exist = false;
+
+    }*/
 }
 
