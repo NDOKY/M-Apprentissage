@@ -86,6 +86,10 @@ public class ListeVideoActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
                     overridePendingTransition(0,0);
                     return true;
+                case R.id.propos:
+                    startActivity(new Intent(getApplicationContext(), aProposActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
                 /*case R.id.reglages:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
