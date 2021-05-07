@@ -1,43 +1,36 @@
 package com.example.m_apprentissage;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.webkit.WebView;
+import android.widget.Toast;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
-public class videoGalleryActivity extends AppCompatActivity {
+public class VideoViewActivity extends AppCompatActivity {
+    //private DatabaseReference mDatabase;
+    //String titreCours;
+    String videoRecuperer;
     BottomNavigationView bottomNavigationView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_videogallery);
-        final ListView list = findViewById(R.id.list);
+        setContentView(R.layout.activity_video_view);
+        videoRecuperer = getIntent().getStringExtra("VIDEO");
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("JAVA");
-        arrayList.add("PHP");
-        arrayList.add("CSharp");
+        WebView webView = findViewById(R.id.webViewVideo);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
-        list.setAdapter(arrayAdapter);
-
-        list.setOnItemClickListener((parent, view, position, id) -> {
-            String clickedItem = (String) list.getItemAtPosition(position);
-            Intent listeVideoIntent = new Intent(getApplicationContext(), ListeVideoActivity.class);
-            listeVideoIntent.putExtra("COURS",clickedItem);
-            startActivity(listeVideoIntent);
-        });
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadData(videoRecuperer,"text/html",null);
     }
 
     public void configureNavigationView(){
-
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
 
             switch (item.getItemId()){
@@ -75,4 +68,3 @@ public class videoGalleryActivity extends AppCompatActivity {
         });
     }
 }
-
