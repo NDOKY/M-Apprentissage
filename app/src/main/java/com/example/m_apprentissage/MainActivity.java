@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         btnConnexion = findViewById(R.id.buttonConnexion);
 
         btnConnexion.setOnClickListener(view -> {
-            //exist = false;
             strPrenom = prenom.getText().toString();
             strNom = nom.getText().toString();
             strTitre = titre.getText().toString();
@@ -104,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()){
                 Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();//toast en trop
                 ref.child(strNom + " " + strPrenom).setValue(user);
                 Intent in = new Intent(getApplicationContext(), videoGalleryActivity.class);
                 startActivity(in);
