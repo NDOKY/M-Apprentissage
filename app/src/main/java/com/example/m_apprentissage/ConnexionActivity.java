@@ -27,6 +27,7 @@ public class ConnexionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion);
 
+
         mEmail = findViewById(R.id.editTextEmailAddress);
         mPassword = findViewById(R.id.editTextPassword);
         mConnexion = findViewById(R.id.buttonConnexion);
