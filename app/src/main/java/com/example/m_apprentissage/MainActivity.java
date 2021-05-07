@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,12 +24,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "Vérification";
     EditText prenom, nom, titre, etablissement, email, password;
     TextView seConnecter;
     String strPrenom, strNom, strTitre, strEtablissement, strEmail, strPassword;
     Button btnConnexion;
     boolean exist = false;
     User user;
+
     private FirebaseDatabase mDatabase;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.editTextEmailAddress);
         password = findViewById(R.id.editTextPassword);
         btnConnexion = findViewById(R.id.buttonConnexion);
+
         btnConnexion.setOnClickListener(view -> {
             strPrenom = prenom.getText().toString();
             strNom = nom.getText().toString();
@@ -83,6 +87,35 @@ public class MainActivity extends AppCompatActivity {
 
                 ref = FirebaseDatabase.getInstance().getReference("User");
                 createAccount(strEmail, strPassword);
+
+                final FirebaseUser userCurrent = mAuth.getCurrentUser();
+
+                userCurrent.sendEmailVerification()
+                        .addOnCompleteListener(this, new OnCompleteListener() {
+                            @Override
+                            public void onComplete(@NonNull Task task) {
+                                // Re-enable button
+                                //findViewById(R.id.verify_email_button).setEnabled(true);
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(MainActivity.this,
+                                            "Verification email sent to " + userCurrent.getEmail(),
+                                            Toast.LENGTH_SHORT).show();
+
+                                } else {
+                                    Log.e(TAG, "sendEmailVerification", task.getException());
+                                    Toast.makeText(MainActivity.this,
+                                            "Failed to send verification email.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                prenom.setText("");
+                nom.setText("");
+                titre.setText("");
+                etablissement.setText("");
+                email.setText("");
+                password.setText("");
             }
         });
     }

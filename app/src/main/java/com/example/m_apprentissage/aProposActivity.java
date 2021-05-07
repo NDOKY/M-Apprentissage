@@ -9,12 +9,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class aProposActivity extends AppCompatActivity {
     Button ccnbButton;
     Button cegepRiviereButton;
     Button cegepGaspesieButton;
     Button educacentreButton;
     Button reseauCegepButton;
+
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +30,69 @@ public class aProposActivity extends AppCompatActivity {
         cegepGaspesieButton = findViewById(R.id.button_cegep_gaspesie);
         educacentreButton = findViewById(R.id.button_educacentre);
         reseauCegepButton = findViewById(R.id.button_reseau_cegep);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+        configureNavigationView();
 //        public void ccnbButtonClick(LinkAddress link){
 //
 //        }
 
     }
 
+    public void configureNavigationView() {
 
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+
+            switch (item.getItemId()) {
+                case R.id.accueil:
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.formations:
+                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.propos:
+                    startActivity(new Intent(getApplicationContext(), aProposActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                /*case R.id.profile:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;*/
+                case R.id.deconnexion:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+            }
+            return false;
+        });
+
+        bottomNavigationView.setOnNavigationItemReselectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.accueil:
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    overridePendingTransition(0, 0);
+                    break;
+                case R.id.formations:
+                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    overridePendingTransition(0, 0);
+                    break;
+                case R.id.propos:
+                    startActivity(new Intent(getApplicationContext(), aProposActivity.class));
+                    overridePendingTransition(0, 0);
+                    break;
+                /*case R.id.profile:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;*/
+                case R.id.deconnexion:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0, 0);
+                    break;
+            }
+        });
+
+
+    }
 }

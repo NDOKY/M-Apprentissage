@@ -16,7 +16,7 @@
         android:title="Formations"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/reglages"
+        android:id="@+id/profile"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="Réglages"
@@ -26,6 +26,12 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_info_24"
         android:title="A propos"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/deconnexion"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        android:title="Deconnexion"
         app:showAsAction="ifRoom" />
 
 </menu>
