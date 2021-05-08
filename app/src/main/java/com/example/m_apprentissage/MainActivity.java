@@ -1,17 +1,15 @@
 package com.example.m_apprentissage;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,28 +21,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.HashMap;
 
-
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "Vérification";
     EditText prenom, nom, titre, etablissement, email, password;
     TextView seConnecter;
     String strPrenom, strNom, strTitre, strEtablissement, strEmail, strPassword;
     Button btnConnexion;
     boolean exist = false;
     User user;
-
     private FirebaseDatabase mDatabase;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
     Toast message;// = Toast.makeText(getApplicationContext(), "",Toast.LENGTH_SHORT);
 
-
     public MainActivity() {
         message = null;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,14 +55,12 @@ public class MainActivity extends AppCompatActivity {
         btnConnexion = findViewById(R.id.buttonConnexion);
 
         btnConnexion.setOnClickListener(view -> {
-            //exist = false;
             strPrenom = prenom.getText().toString();
             strNom = nom.getText().toString();
             strTitre = titre.getText().toString();
             strEtablissement = etablissement.getText().toString();
             strEmail = email.getText().toString();
             strPassword = password.getText().toString();
-
 
             if (strPrenom.equalsIgnoreCase(""))
             {
@@ -92,18 +84,45 @@ public class MainActivity extends AppCompatActivity {
             else {
                 user = new User(strPrenom, strNom, strTitre, strEtablissement, strEmail, strPassword);
 
-
                 ref = FirebaseDatabase.getInstance().getReference("User");
                 createAccount(strEmail, strPassword);
 
+                final FirebaseUser userCurrent = mAuth.getCurrentUser();
+
+                userCurrent.sendEmailVerification()
+                        .addOnCompleteListener(this, new OnCompleteListener() {
+                            @Override
+                            public void onComplete(@NonNull Task task) {
+                                // Re-enable button
+                                //findViewById(R.id.verify_email_button).setEnabled(true);
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(MainActivity.this,
+                                            "Verification email sent to " + userCurrent.getEmail(),
+                                            Toast.LENGTH_SHORT).show();
+
+                                } else {
+                                    Log.e(TAG, "sendEmailVerification", task.getException());
+                                    Toast.makeText(MainActivity.this,
+                                            "Failed to send verification email.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                prenom.setText("");
+                nom.setText("");
+                titre.setText("");
+                etablissement.setText("");
+                email.setText("");
+                password.setText("");
             }
         });
-
     }
     public void createAccount(String email, String password){
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()){
                 Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();//toast en trop
                 ref.child(strNom + " " + strPrenom).setValue(user);
                 Intent in = new Intent(getApplicationContext(), videoGalleryActivity.class);
                 startActivity(in);
@@ -113,51 +132,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    /*public void updateDataBase(DatabaseReference reference){
-        reference.addValueEventListener(new ValueEventListener(){
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                for(DataSnapshot iSnapshot : snapshot.getChildren()){
-                    DataSnapshot snap = iSnapshot.child("courrielUser");
-                    String mail = snap.getValue(String.class);
-
-                    if (strEmail.equals(mail)){
-                        exist = true;
-                        //Toast.makeText(MainActivity.this, mail, Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                if(!exist){
-                    //message.cancel();
-                    //message.setText("Désolé cette adresse mail est deja utilisé");
-                    //message.show();
-                    compteur++;
-                    *//*ref.child(strNom + " " + strPrenom).setValue(user);
-                    Intent in = new Intent(getApplicationContext(), videoGalleryActivity.class);
-                    startActivity(in);
-                    createAccount(strEmail,strPassword);*//*
-                }
-                else {
-                   *//* compteur++;
-                    ref.child("User"+compteur).setValue(user);
-                    Intent in = new Intent(getApplicationContext(), VideoGalleryActivity.class);
-                    startActivity(in);
-                    createAccount(strEmail,strPassword);*//*
-                    //message.cancel();
-                    //message.setText("Merci pour votre inscription");
-                    //message.show();
-                }
-                //exist = false;
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        exist = false;
-
-    }*/
 }
-

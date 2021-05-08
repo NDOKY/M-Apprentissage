@@ -34,7 +34,7 @@ public class ListeVideoActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         coursRecuperer = getExtra();
         InitListe();
-
+        bottomNavigationView.setSelectedItemId(R.id.accueil);
         configureNavigationView();
 
         listeVideo.setOnItemClickListener((parent, view, position, id) -> {
@@ -79,17 +79,14 @@ public class ListeVideoActivity extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.accueil:
-                    //bottomNavigationView.setSelectedItemId(R.id.accueil);
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    //startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 case R.id.formations:
-                    //bottomNavigationView.setSelectedItemId(R.id.formations);
                     startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 case R.id.propos:
-                    //bottomNavigationView.setSelectedItemId(R.id.propos);
                     startActivity(new Intent(getApplicationContext(), aProposActivity.class));
                     overridePendingTransition(0,0);
                     return true;
@@ -97,6 +94,10 @@ public class ListeVideoActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
                     return true;*/
+                case R.id.deconnexion:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
             }
             return false;
         });
@@ -104,17 +105,25 @@ public class ListeVideoActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemReselectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    //startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
                     startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
                     overridePendingTransition(0,0);
                     break;
-                /*case R.id.reglages:
+                case R.id.propos:
+                    startActivity(new Intent(getApplicationContext(), aProposActivity.class));
+                    overridePendingTransition(0,0);
+                    break;
+                /*case R.id.profile:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
                     return true;*/
+                case R.id.deconnexion:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
+                    break;
             }
         });
     }

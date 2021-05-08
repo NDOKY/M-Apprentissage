@@ -53,5 +53,9 @@ public class ConnexionActivity extends AppCompatActivity {
             }
         });
 
+        if(!email.isEmpty() && !passWord.isEmpty()){
+            mEmail.setText("");
+            mPassword.setText("");
+        }
     }
 }

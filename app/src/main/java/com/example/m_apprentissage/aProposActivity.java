@@ -17,7 +17,9 @@ public class aProposActivity extends AppCompatActivity {
     Button cegepGaspesieButton;
     Button educacentreButton;
     Button reseauCegepButton;
+
     BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +81,10 @@ public class aProposActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
                     return true;*/
+                case R.id.deconnexion:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0, 0);
+                    break;
             }
         });
     }
