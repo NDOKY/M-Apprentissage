@@ -20,6 +20,8 @@ public class videoGalleryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_videogallery);
         final ListView list = findViewById(R.id.list);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.formations);
+        configureNavigationView();
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("JAVA");
         arrayList.add("PHP");
@@ -46,7 +48,13 @@ public class videoGalleryActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     return true;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    //bottomNavigationView.setSelectedItemId(R.id.formations);
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.propos:
+                    //bottomNavigationView.setSelectedItemId(R.id.propos);
+                    startActivity(new Intent(getApplicationContext(), aProposActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 /*case R.id.reglages:
@@ -64,7 +72,7 @@ public class videoGalleryActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 /*case R.id.reglages:
