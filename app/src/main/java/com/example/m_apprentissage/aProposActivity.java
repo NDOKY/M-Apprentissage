@@ -46,16 +46,19 @@ public class aProposActivity extends AppCompatActivity {
                 case R.id.accueil:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
                 case R.id.formations:
                     //bottomNavigationView.setSelectedItemId(R.id.formations);
                     startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
                 case R.id.propos:
                     //bottomNavigationView.setSelectedItemId(R.id.propos);
                     startActivity(new Intent(getApplicationContext(), aProposActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
                 /*case R.id.reglages:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));

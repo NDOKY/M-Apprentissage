@@ -24,6 +24,7 @@ public class VideoViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video_view);
         videoRecuperer = getIntent().getStringExtra("VIDEO");
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.formations);
         WebView webView = findViewById(R.id.webViewVideo);
 
         webView.getSettings().setJavaScriptEnabled(true);
@@ -39,14 +40,17 @@ public class VideoViewActivity extends AppCompatActivity {
                 case R.id.accueil:
                     startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
                 case R.id.formations:
                     startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
                 case R.id.propos:
                     startActivity(new Intent(getApplicationContext(), aProposActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
                 /*case R.id.profile:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
@@ -55,6 +59,7 @@ public class VideoViewActivity extends AppCompatActivity {
                 case R.id.deconnexion:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
             }
             return false;
@@ -63,11 +68,11 @@ public class VideoViewActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemReselectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ConnexionActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.propos:
