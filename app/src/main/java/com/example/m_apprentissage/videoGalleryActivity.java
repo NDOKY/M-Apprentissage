@@ -7,6 +7,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -14,22 +15,30 @@ import java.util.ArrayList;
 
 public class videoGalleryActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+    ListView listProgrammation;
+    ListView listAdministration;
+    ArrayList<String> arrayListProg;
+    ArrayList<String> arrayListAdministration;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videogallery);
-        final ListView list = findViewById(R.id.list);
+        listProgrammation = findViewById(R.id.listProgrammation);
+        listAdministration = findViewById(R.id.listAdministration);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("JAVA");
-        arrayList.add("PHP");
-        arrayList.add("CSharp");
+        bottomNavigationView.setSelectedItemId(R.id.formations);
+        configureNavigationView();
+        remplissageListe();
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
-        list.setAdapter(arrayAdapter);
 
-        list.setOnItemClickListener((parent, view, position, id) -> {
-            String clickedItem = (String) list.getItemAtPosition(position);
+        ArrayAdapter<String> arrayAdapterProg = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayListProg);
+        listProgrammation.setAdapter(arrayAdapterProg);
+
+        ArrayAdapter<String> arrayAdapterAdministration = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayListAdministration);
+        listAdministration.setAdapter(arrayAdapterAdministration);
+
+        listProgrammation.setOnItemClickListener((parent, view, position, id) -> {
+            String clickedItem = (String) listProgrammation.getItemAtPosition(position);
             Intent listeVideoIntent = new Intent(getApplicationContext(), ListeVideoActivity.class);
             listeVideoIntent.putExtra("COURS",clickedItem);
             startActivity(listeVideoIntent);
@@ -44,16 +53,20 @@ public class videoGalleryActivity extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ConnexionActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
+
                 case R.id.propos:
                     startActivity(new Intent(getApplicationContext(), aProposActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
                 /*case R.id.profile:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
@@ -62,6 +75,7 @@ public class videoGalleryActivity extends AppCompatActivity {
                 case R.id.deconnexion:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
+                    finish();
                     return true;
             }
             return false;
@@ -70,11 +84,11 @@ public class videoGalleryActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemReselectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ConnexionActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.propos:
@@ -91,6 +105,18 @@ public class videoGalleryActivity extends AppCompatActivity {
                     break;
             }
         });
+    }
+
+    public void remplissageListe(){
+        arrayListProg = new ArrayList<>();
+        arrayListProg.add("JAVA");
+        arrayListProg.add("PHP");
+        arrayListProg.add("CSharp");
+
+        arrayListAdministration = new ArrayList<>();
+        arrayListAdministration.add("Comptabilité");
+        arrayListAdministration.add("Statistique");
+        arrayListAdministration.add("Droit");
     }
 
 }

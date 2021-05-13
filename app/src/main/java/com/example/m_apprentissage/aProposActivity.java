@@ -24,13 +24,13 @@ public class aProposActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_propos);
-
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
         ccnbButton = findViewById(R.id.button_ccnb);
         cegepRiviereButton = findViewById(R.id.button_trois_rivierre);
         cegepGaspesieButton = findViewById(R.id.button_cegep_gaspesie);
         educacentreButton = findViewById(R.id.button_educacentre);
         reseauCegepButton = findViewById(R.id.button_reseau_cegep);
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.propos);
 
         configureNavigationView();
 //        public void ccnbButtonClick(LinkAddress link){
@@ -38,51 +38,49 @@ public class aProposActivity extends AppCompatActivity {
 //        }
 
     }
-
-    public void configureNavigationView() {
+    public void configureNavigationView(){
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
 
-            switch (item.getItemId()) {
+            switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
-                    overridePendingTransition(0, 0);
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
+                    finish();
                     return true;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
-                    overridePendingTransition(0, 0);
+                    //bottomNavigationView.setSelectedItemId(R.id.formations);
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    overridePendingTransition(0,0);
+                    finish();
                     return true;
                 case R.id.propos:
+                    //bottomNavigationView.setSelectedItemId(R.id.propos);
                     startActivity(new Intent(getApplicationContext(), aProposActivity.class));
-                    overridePendingTransition(0, 0);
+                    overridePendingTransition(0,0);
+                    finish();
                     return true;
-                /*case R.id.profile:
+                /*case R.id.reglages:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
                     return true;*/
-                case R.id.deconnexion:
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
             }
             return false;
         });
 
         bottomNavigationView.setOnNavigationItemReselectedListener(item -> {
-            switch (item.getItemId()) {
+            switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
-                    overridePendingTransition(0, 0);
+                    bottomNavigationView.setSelectedItemId(R.id.accueil);
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
-                    overridePendingTransition(0, 0);
+                    bottomNavigationView.setSelectedItemId(R.id.formations);
+                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    overridePendingTransition(0,0);
                     break;
-                case R.id.propos:
-                    startActivity(new Intent(getApplicationContext(), aProposActivity.class));
-                    overridePendingTransition(0, 0);
-                    break;
-                /*case R.id.profile:
+                /*case R.id.reglages:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
                     return true;*/
@@ -92,7 +90,6 @@ public class aProposActivity extends AppCompatActivity {
                     break;
             }
         });
-
-
     }
+
 }

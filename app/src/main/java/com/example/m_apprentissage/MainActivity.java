@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
     Button btnConnexion;
     boolean exist = false;
     User user;
-
     private FirebaseDatabase mDatabase;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
+    FirebaseAuth firebaseAuth;
     Toast message;// = Toast.makeText(getApplicationContext(), "",Toast.LENGTH_SHORT);
 
     public MainActivity() {
@@ -88,28 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 ref = FirebaseDatabase.getInstance().getReference("User");
                 createAccount(strEmail, strPassword);
 
-                final FirebaseUser userCurrent = mAuth.getCurrentUser();
 
-                userCurrent.sendEmailVerification()
-                        .addOnCompleteListener(this, new OnCompleteListener() {
-                            @Override
-                            public void onComplete(@NonNull Task task) {
-                                // Re-enable button
-                                //findViewById(R.id.verify_email_button).setEnabled(true);
-
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(MainActivity.this,
-                                            "Verification email sent to " + userCurrent.getEmail(),
-                                            Toast.LENGTH_SHORT).show();
-
-                                } else {
-                                    Log.e(TAG, "sendEmailVerification", task.getException());
-                                    Toast.makeText(MainActivity.this,
-                                            "Failed to send verification email.",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
                 prenom.setText("");
                 nom.setText("");
                 titre.setText("");
@@ -122,11 +101,33 @@ public class MainActivity extends AppCompatActivity {
     public void createAccount(String email, String password){
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()){
+
+                mAuth.getCurrentUser().sendEmailVerification()
+                        .addOnCompleteListener(this, new OnCompleteListener() {
+                            @Override
+                            public void onComplete(@NonNull Task task) {
+                                // Re-enable button
+                                //findViewById(R.id.verify_email_button).setEnabled(true);
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(MainActivity.this,
+                                            "Verification email sent to " + mAuth.getCurrentUser().getEmail(),
+                                            Toast.LENGTH_SHORT).show();
+
+                                } else {
+                                    Log.e(TAG, "sendEmailVerification", task.getException());
+                                    Toast.makeText(MainActivity.this,
+                                            "Une erreur est survenue",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+
                 Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();//toast en trop
                 ref.child(strNom + " " + strPrenom).setValue(user);
                 Intent in = new Intent(getApplicationContext(), videoGalleryActivity.class);
                 startActivity(in);
+                finish();
             }
             else {
                 Toast.makeText(getApplicationContext(), "Authentication failed",Toast.LENGTH_SHORT).show();
