@@ -17,9 +17,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ConnexionActivity extends AppCompatActivity {
 
-    EditText mEmail, mPassword;
+    EditText mEmail, mPassword,mNomPrenom;
     Button mConnexion;
     FirebaseAuth firebaseAuth;
+    static String nomPrenom;
 
 
     @Override
@@ -31,19 +32,24 @@ public class ConnexionActivity extends AppCompatActivity {
         mEmail = findViewById(R.id.editTextEmailAddress);
         mPassword = findViewById(R.id.editTextPassword);
         mConnexion = findViewById(R.id.buttonConnexion);
+        mNomPrenom = findViewById(R.id.editTextNomPrenom);
         firebaseAuth = FirebaseAuth.getInstance();
     }
 
     public void ConnexionButton(View view){
         String email = mEmail.getText().toString().trim();
         String passWord = mPassword.getText().toString().trim();
+        nomPrenom = mNomPrenom.getText().toString().trim();
 
         firebaseAuth.signInWithEmailAndPassword(email,passWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(ConnexionActivity.this, "User successful login", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    Intent galleryIntent = new Intent(getApplicationContext(), videoGalleryActivity.class);
+                    galleryIntent.putExtra("nomUser", "connexion");
+                    startActivity(galleryIntent);
+                    finish();
                 }
                 else{
                     Toast.makeText(ConnexionActivity.this, "ERROR", Toast.LENGTH_LONG).show();

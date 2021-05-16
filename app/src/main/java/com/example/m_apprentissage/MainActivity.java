@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseAuth firebaseAuth;
     Toast message;// = Toast.makeText(getApplicationContext(), "",Toast.LENGTH_SHORT);
+    static String nomPrenom;
 
     public MainActivity() {
         message = null;
@@ -124,9 +125,11 @@ public class MainActivity extends AppCompatActivity {
                         });
 
                 Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();
-                ref.child(strNom + " " + strPrenom).setValue(user);
-                Intent in = new Intent(getApplicationContext(), videoGalleryActivity.class);
-                startActivity(in);
+                nomPrenom = strNom + " " + strPrenom;
+                ref.child(nomPrenom).setValue(user);
+                Intent galleryIntent = new Intent(getApplicationContext(), videoGalleryActivity.class);
+                galleryIntent.putExtra("nomUser", "inscription");
+                startActivity(galleryIntent);
                 finish();
             }
             else {

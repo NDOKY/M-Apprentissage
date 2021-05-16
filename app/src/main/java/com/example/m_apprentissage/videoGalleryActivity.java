@@ -19,6 +19,7 @@ public class videoGalleryActivity extends AppCompatActivity {
     ListView listAdministration;
     ArrayList<String> arrayListProg;
     ArrayList<String> arrayListAdministration;
+   static String nomUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +28,9 @@ public class videoGalleryActivity extends AppCompatActivity {
         listAdministration = findViewById(R.id.listAdministration);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.formations);
-        configureNavigationView();
         remplissageListe();
-
+        nomUser = getIntent().getStringExtra("nomUser");
+        configureNavigationView();
 
         ArrayAdapter<String> arrayAdapterProg = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayListProg);
         listProgrammation.setAdapter(arrayAdapterProg);
@@ -44,7 +45,6 @@ public class videoGalleryActivity extends AppCompatActivity {
             startActivity(listeVideoIntent);
         });
 
-        configureNavigationView();
     }
 
     public void configureNavigationView(){
@@ -68,10 +68,13 @@ public class videoGalleryActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     finish();
                     return true;
-                /*case R.id.profile:
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                case R.id.profile:
+                    Intent profileIntent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    profileIntent.putExtra("nomUser",nomUser);
+                    startActivity(profileIntent);
                     overridePendingTransition(0,0);
-                    return true;*/
+                    //finish();
+                    return true;
                 case R.id.deconnexion:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);
@@ -95,10 +98,13 @@ public class videoGalleryActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), aProposActivity.class));
                     overridePendingTransition(0,0);
                     break;
-                /*case R.id.profile:
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                case R.id.profile:
+                    Intent profileIntent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    profileIntent.putExtra("nomUser",nomUser);
+                    startActivity(profileIntent);
                     overridePendingTransition(0,0);
-                    return true;*/
+                    //finish();
+                    break;
                 case R.id.deconnexion:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);

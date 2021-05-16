@@ -52,10 +52,11 @@ public class VideoViewActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     finish();
                     return true;
-                /*case R.id.profile:
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                case R.id.profile:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                     overridePendingTransition(0,0);
-                    return true;*/
+                    finish();
+                    return true;
                 case R.id.deconnexion:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);

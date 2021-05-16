@@ -18,7 +18,7 @@ public class User{
     }
 
     public User(String prenomUser, String nomUser, String titreUser, String etablissementUser, String courrielUser, String passWordUser){
-        this.prenomUser = prenomUser;
+        setPrenomUser(prenomUser);
         this.nomUser = nomUser;
         this.titreUser = titreUser;
         this.etablissementUser = etablissementUser;

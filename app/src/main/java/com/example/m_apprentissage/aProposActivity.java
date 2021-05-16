@@ -60,10 +60,11 @@ public class aProposActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     finish();
                     return true;
-                /*case R.id.reglages:
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                case R.id.profile:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                     overridePendingTransition(0,0);
-                    return true;*/
+                    finish();
+                    return true;
             }
             return false;
         });
@@ -80,10 +81,10 @@ public class aProposActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
                     overridePendingTransition(0,0);
                     break;
-                /*case R.id.reglages:
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                case R.id.profile:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                     overridePendingTransition(0,0);
-                    return true;*/
+                    break;
                 case R.id.deconnexion:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0, 0);
