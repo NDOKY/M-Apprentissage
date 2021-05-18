@@ -3,27 +3,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class InscriptionActivity extends AppCompatActivity {
     private static final String TAG = "Vérification";
     EditText prenom, nom, titre, etablissement, email, password;
     TextView seConnecter;
@@ -38,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
     Toast message;// = Toast.makeText(getApplicationContext(), "",Toast.LENGTH_SHORT);
     static String nomPrenom;
 
-    public MainActivity() {
+    public InscriptionActivity() {
         message = null;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_inscription);
         mDatabase = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
         message = Toast.makeText(getApplicationContext(), "",Toast.LENGTH_SHORT);
@@ -107,17 +98,14 @@ public class MainActivity extends AppCompatActivity {
                         .addOnCompleteListener(this, new OnCompleteListener() {
                             @Override
                             public void onComplete(@NonNull Task task) {
-                                // Re-enable button
-                                //findViewById(R.id.verify_email_button).setEnabled(true);
-
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(MainActivity.this,
+                                    Toast.makeText(InscriptionActivity.this,
                                             "Verification email sent to " + mAuth.getCurrentUser().getEmail(),
                                             Toast.LENGTH_SHORT).show();
 
                                 } else {
                                     Log.e(TAG, "sendEmailVerification", task.getException());
-                                    Toast.makeText(MainActivity.this,
+                                    Toast.makeText(InscriptionActivity.this,
                                             "Une erreur est survenue",
                                             Toast.LENGTH_LONG).show();
                                 }
@@ -127,14 +115,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();
                 nomPrenom = strNom + " " + strPrenom;
                 ref.child(nomPrenom).setValue(user);
-                Intent galleryIntent = new Intent(getApplicationContext(), videoGalleryActivity.class);
+                Intent galleryIntent = new Intent(getApplicationContext(), FormationActivity.class);
                 galleryIntent.putExtra("nomUser", "inscription");
                 startActivity(galleryIntent);
                 finish();
             }
-            else {
-                Toast.makeText(getApplicationContext(), "Authentication failed",Toast.LENGTH_SHORT).show();
-            }
+            /*else {
+                //Toast.makeText(getApplicationContext(), "Entr",Toast.LENGTH_SHORT).show();
+            }*/
         });
     }
 }

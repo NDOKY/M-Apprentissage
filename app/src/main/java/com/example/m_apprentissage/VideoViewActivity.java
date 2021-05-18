@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class VideoViewActivity extends AppCompatActivity {
     //private DatabaseReference mDatabase;
@@ -38,12 +35,12 @@ public class VideoViewActivity extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FormationActivity.class));
                     overridePendingTransition(0,0);
                     finish();
                     return true;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    startActivity(new Intent(getApplicationContext(), VideoFormationActivity.class));
                     overridePendingTransition(0,0);
                     finish();
                     return true;
@@ -73,7 +70,7 @@ public class VideoViewActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FormationActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.propos:

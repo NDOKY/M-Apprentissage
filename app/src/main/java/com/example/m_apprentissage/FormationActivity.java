@@ -4,16 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class videoGalleryActivity extends AppCompatActivity {
+public class FormationActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     ListView listProgrammation;
     ListView listAdministration;
@@ -23,7 +21,7 @@ public class videoGalleryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_videogallery);
+        setContentView(R.layout.activity_formation);
         listProgrammation = findViewById(R.id.listProgrammation);
         listAdministration = findViewById(R.id.listAdministration);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -40,7 +38,7 @@ public class videoGalleryActivity extends AppCompatActivity {
 
         listProgrammation.setOnItemClickListener((parent, view, position, id) -> {
             String clickedItem = (String) listProgrammation.getItemAtPosition(position);
-            Intent listeVideoIntent = new Intent(getApplicationContext(), ListeVideoActivity.class);
+            Intent listeVideoIntent = new Intent(getApplicationContext(), VideoFormationActivity.class);
             listeVideoIntent.putExtra("COURS",clickedItem);
             startActivity(listeVideoIntent);
         });
@@ -58,7 +56,7 @@ public class videoGalleryActivity extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FormationActivity.class));
                     overridePendingTransition(0,0);
                     finish();
                     return true;
@@ -91,7 +89,7 @@ public class videoGalleryActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FormationActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.propos:

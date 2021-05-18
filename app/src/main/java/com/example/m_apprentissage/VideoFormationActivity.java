@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -18,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ListeVideoActivity extends AppCompatActivity {
+public class VideoFormationActivity extends AppCompatActivity {
     String coursRecuperer;
     private DatabaseReference mDatabase;
     String videoEnvoye;
@@ -29,7 +28,7 @@ public class ListeVideoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liste_video);
+        setContentView(R.layout.activity_video_formation);
         listeVideo = findViewById(R.id.listeVideo);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         coursRecuperer = getExtra();
@@ -83,7 +82,7 @@ public class ListeVideoActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     return true;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), ListeVideoActivity.class));
+                    startActivity(new Intent(getApplicationContext(), VideoFormationActivity.class));
                     overridePendingTransition(0,0);
                     finish();
                     return true;
@@ -113,7 +112,7 @@ public class ListeVideoActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FormationActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.propos:

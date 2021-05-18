@@ -56,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("User").child(ConnexionActivity.nomPrenom);
             }
             else if(nomUser.equals("inscription")){
-                mDatabase = FirebaseDatabase.getInstance().getReference("User").child(MainActivity.nomPrenom);
+                mDatabase = FirebaseDatabase.getInstance().getReference("User").child(InscriptionActivity.nomPrenom);
             }
         }
         else{
@@ -141,7 +141,7 @@ public class ProfileActivity extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FormationActivity.class));
                     overridePendingTransition(0,0);
                     finish();
                     return true;
@@ -174,7 +174,7 @@ public class ProfileActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FormationActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.propos:

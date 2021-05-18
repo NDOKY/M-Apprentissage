@@ -46,13 +46,13 @@ public class ConnexionActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(ConnexionActivity.this, "User successful login", Toast.LENGTH_SHORT).show();
-                    Intent galleryIntent = new Intent(getApplicationContext(), videoGalleryActivity.class);
+                    Intent galleryIntent = new Intent(getApplicationContext(), FormationActivity.class);
                     galleryIntent.putExtra("nomUser", "connexion");
                     startActivity(galleryIntent);
                     finish();
                 }
                 else{
-                    Toast.makeText(ConnexionActivity.this, "ERROR", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ConnexionActivity.this, "Un probleme est survenu lors de votre connexion", Toast.LENGTH_LONG).show();
 
                 }
 

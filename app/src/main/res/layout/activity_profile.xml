@@ -69,7 +69,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="60dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/modifButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/passTextView" />
@@ -174,7 +174,7 @@
         android:layout_marginBottom="8dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editTextPass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/courrielTextView" />

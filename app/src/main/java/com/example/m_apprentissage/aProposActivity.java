@@ -2,11 +2,8 @@ package com.example.m_apprentissage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.net.LinkAddress;
-import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -50,7 +47,7 @@ public class aProposActivity extends AppCompatActivity {
                     return true;
                 case R.id.formations:
                     //bottomNavigationView.setSelectedItemId(R.id.formations);
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FormationActivity.class));
                     overridePendingTransition(0,0);
                     finish();
                     return true;
@@ -78,7 +75,7 @@ public class aProposActivity extends AppCompatActivity {
                     break;
                 case R.id.formations:
                     bottomNavigationView.setSelectedItemId(R.id.formations);
-                    startActivity(new Intent(getApplicationContext(), videoGalleryActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FormationActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.profile:

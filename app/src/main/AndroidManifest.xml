@@ -15,9 +15,9 @@
         <activity android:name=".aProposActivity" />
         <activity android:name=".ProfileActivity"/>
         <activity android:name=".VideoViewActivity" />
-        <activity android:name=".ListeVideoActivity" />
+        <activity android:name=".VideoFormationActivity" />
         <activity android:name=".ConnexionActivity" />
-        <activity android:name=".videoGalleryActivity" />
+        <activity android:name=".FormationActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".InscriptionActivity" />
     </application>
 
 </manifest>
