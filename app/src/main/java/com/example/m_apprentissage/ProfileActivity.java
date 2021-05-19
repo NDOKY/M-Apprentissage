@@ -136,7 +136,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), ConnexionActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AcceuilActivity.class));
                     overridePendingTransition(0,0);
                     finish();
                     return true;
@@ -170,7 +170,7 @@ public class ProfileActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemReselectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), ConnexionActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AcceuilActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
@@ -186,7 +186,7 @@ public class ProfileActivity extends AppCompatActivity {
                     profileIntent.putExtra("nomUser",nomUser);
                     startActivity(profileIntent);
                     overridePendingTransition(0,0);
-                    finish();
+                   // finish();
                     break;*/
                 case R.id.deconnexion:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));

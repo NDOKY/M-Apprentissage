@@ -78,7 +78,7 @@ public class VideoFormationActivity extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.accueil:
-                    //startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AcceuilActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 case R.id.formations:
@@ -108,7 +108,7 @@ public class VideoFormationActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemReselectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), ConnexionActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AcceuilActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
@@ -119,10 +119,11 @@ public class VideoFormationActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), aProposActivity.class));
                     overridePendingTransition(0,0);
                     break;
-                /*case R.id.profile:
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                case R.id.profile:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                     overridePendingTransition(0,0);
-                    return true;*/
+                    break;
+                   // return true;
                 case R.id.deconnexion:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     overridePendingTransition(0,0);

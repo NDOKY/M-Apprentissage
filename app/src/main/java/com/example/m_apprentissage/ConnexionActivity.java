@@ -46,7 +46,7 @@ public class ConnexionActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(ConnexionActivity.this, "User successful login", Toast.LENGTH_SHORT).show();
-                    Intent galleryIntent = new Intent(getApplicationContext(), FormationActivity.class);
+                    Intent galleryIntent = new Intent(getApplicationContext(), AcceuilActivity.class);
                     galleryIntent.putExtra("nomUser", "connexion");
                     startActivity(galleryIntent);
                     finish();
