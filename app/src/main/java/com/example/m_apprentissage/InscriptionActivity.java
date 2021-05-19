@@ -28,6 +28,8 @@ public class InscriptionActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     Toast message;// = Toast.makeText(getApplicationContext(), "",Toast.LENGTH_SHORT);
     static String nomPrenom;
+    //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    //String passwordPattern = "^[a-zA-Z0-9]*$";
 
     public InscriptionActivity() {
         message = null;
@@ -55,6 +57,10 @@ public class InscriptionActivity extends AppCompatActivity {
             strEmail = email.getText().toString();
             strPassword = password.getText().toString();
 
+          /*  if (!(strEmail.matches(emailPattern))){
+                Toast.makeText(getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
+                email.setError("Votre email est invalide");
+            }*/
             if (strPrenom.equalsIgnoreCase(""))
             {
                 prenom.setError("Veuillez entrer le prenom");//it gives user to info message //use any one //
