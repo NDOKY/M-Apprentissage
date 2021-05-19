@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MApprentissage"
         android:usesCleartextTraffic="true">
+        <activity android:name=".AcceuilActivity"></activity>
         <activity android:name=".aProposActivity" />
-        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".VideoViewActivity" />
         <activity android:name=".VideoFormationActivity" />
         <activity android:name=".ConnexionActivity" />

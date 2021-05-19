@@ -121,7 +121,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();
                 nomPrenom = strNom + " " + strPrenom;
                 ref.child(nomPrenom).setValue(user);
-                Intent galleryIntent = new Intent(getApplicationContext(), FormationActivity.class);
+                Intent galleryIntent = new Intent(getApplicationContext(), AcceuilActivity.class);
                 galleryIntent.putExtra("nomUser", "inscription");
                 startActivity(galleryIntent);
                 finish();

@@ -41,7 +41,7 @@ public class aProposActivity extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AcceuilActivity.class));
                     overridePendingTransition(0,0);
                     finish();
                     return true;
@@ -70,7 +70,7 @@ public class aProposActivity extends AppCompatActivity {
             switch (item.getItemId()){
                 case R.id.accueil:
                     bottomNavigationView.setSelectedItemId(R.id.accueil);
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AcceuilActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:

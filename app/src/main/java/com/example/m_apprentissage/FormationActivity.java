@@ -51,7 +51,7 @@ public class FormationActivity extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), ConnexionActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AcceuilActivity.class));
                     overridePendingTransition(0,0);
                     finish();
                     return true;
@@ -71,7 +71,7 @@ public class FormationActivity extends AppCompatActivity {
                     profileIntent.putExtra("nomUser",nomUser);
                     startActivity(profileIntent);
                     overridePendingTransition(0,0);
-                    //finish();
+                    finish();
                     return true;
                 case R.id.deconnexion:
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
@@ -85,7 +85,7 @@ public class FormationActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemReselectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.accueil:
-                    startActivity(new Intent(getApplicationContext(), ConnexionActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AcceuilActivity.class));
                     overridePendingTransition(0,0);
                     break;
                 case R.id.formations:
