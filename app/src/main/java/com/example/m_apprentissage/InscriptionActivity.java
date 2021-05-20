@@ -28,8 +28,8 @@ public class InscriptionActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     Toast message;// = Toast.makeText(getApplicationContext(), "",Toast.LENGTH_SHORT);
     static String nomPrenom;
-    //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-    //String passwordPattern = "^[a-zA-Z0-9]*$";
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String passwordPattern = "^[a-zA-Z0-9]*$";
 
     public InscriptionActivity() {
         message = null;
@@ -50,17 +50,21 @@ public class InscriptionActivity extends AppCompatActivity {
         btnConnexion = findViewById(R.id.buttonConnexion);
 
         btnConnexion.setOnClickListener(view -> {
-            strPrenom = prenom.getText().toString();
-            strNom = nom.getText().toString();
+            strPrenom = prenom.getText().toString().trim();
+            strNom = nom.getText().toString().trim();
             strTitre = titre.getText().toString();
             strEtablissement = etablissement.getText().toString();
             strEmail = email.getText().toString();
-            strPassword = password.getText().toString();
+            strPassword = password.getText().toString().trim();
 
-          /*  if (!(strEmail.matches(emailPattern))){
-                Toast.makeText(getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
+            if (!(strEmail.matches(emailPattern))){
+                //Toast.makeText(getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
                 email.setError("Votre email est invalide");
-            }*/
+            }
+            if (!(strPassword.matches(passwordPattern))){
+                //Toast.makeText(getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
+                password.setError("Mot de passe invalide");
+            }
             if (strPrenom.equalsIgnoreCase(""))
             {
                 prenom.setError("Veuillez entrer le prenom");//it gives user to info message //use any one //
@@ -121,9 +125,9 @@ public class InscriptionActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "User successfully create",Toast.LENGTH_SHORT).show();
                 nomPrenom = strNom + " " + strPrenom;
                 ref.child(nomPrenom).setValue(user);
-                Intent galleryIntent = new Intent(getApplicationContext(), AcceuilActivity.class);
-                galleryIntent.putExtra("nomUser", "inscription");
-                startActivity(galleryIntent);
+                Intent accueilIntent = new Intent(getApplicationContext(), AcceuilActivity.class);
+                accueilIntent.putExtra("activity", "inscription");
+                startActivity(accueilIntent);
                 finish();
             }
             /*else {

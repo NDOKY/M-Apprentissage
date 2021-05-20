@@ -17,7 +17,7 @@ public class FormationActivity extends AppCompatActivity {
     ListView listAdministration;
     ArrayList<String> arrayListProg;
     ArrayList<String> arrayListAdministration;
-   static String nomUser;
+    static String nomUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +38,13 @@ public class FormationActivity extends AppCompatActivity {
 
         listProgrammation.setOnItemClickListener((parent, view, position, id) -> {
             String clickedItem = (String) listProgrammation.getItemAtPosition(position);
+            Intent listeVideoIntent = new Intent(getApplicationContext(), VideoFormationActivity.class);
+            listeVideoIntent.putExtra("COURS",clickedItem);
+            startActivity(listeVideoIntent);
+        });
+
+        listAdministration.setOnItemClickListener((parent, view, position, id) -> {
+            String clickedItem = (String) listAdministration.getItemAtPosition(position);
             Intent listeVideoIntent = new Intent(getApplicationContext(), VideoFormationActivity.class);
             listeVideoIntent.putExtra("COURS",clickedItem);
             startActivity(listeVideoIntent);

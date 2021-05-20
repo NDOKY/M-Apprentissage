@@ -49,19 +49,23 @@ public class ProfileActivity extends AppCompatActivity {
         titre = findViewById(R.id.editTextTitle);
         etablissement = findViewById(R.id.editTextEtab);
         prenom = findViewById(R.id.editTextPre);
-        nomUser = getIntent().getStringExtra("nomUser");
+        //nomUser = getIntent().getStringExtra("nomUser");
         //mDatabase = FirebaseDatabase.getInstance().getReference("User").child(nomUser);
-        if(nomUser != null){
+       /* if(nomUser != null){
             if(nomUser.equals("connexion")){
                 mDatabase = FirebaseDatabase.getInstance().getReference("User").child(ConnexionActivity.nomPrenom);
+                autreNom = ConnexionActivity.nomPrenom;
             }
             else if(nomUser.equals("inscription")){
                 mDatabase = FirebaseDatabase.getInstance().getReference("User").child(InscriptionActivity.nomPrenom);
+                autreNom = InscriptionActivity.nomPrenom;
             }
         }
         else{
             mDatabase = FirebaseDatabase.getInstance().getReference("User").child(autreNom);
-        }
+        }*/
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("User").child(AcceuilActivity.nomUser);
 
         bottomNavigationView.setSelectedItemId(R.id.profile);
         configureNavigationView();
@@ -83,7 +87,7 @@ public class ProfileActivity extends AppCompatActivity {
                 prenom.setText(user.getPrenomUser());
                 titre.setText(user.getTitreUser());
                 etablissement.setText(user.getEtablissementUser());
-                autreNom = user.getNomUser()+" "+user.getPrenomUser();
+                //autreNom = user.getNomUser()+" "+user.getPrenomUser();
             }
 
             @Override

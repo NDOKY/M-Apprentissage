@@ -15,7 +15,8 @@ public class AcceuilActivity extends AppCompatActivity {
     Button btnCommencer;
     TextView txtPersonne;
     BottomNavigationView bottomNavigationView;
-
+    static String nomUser;
+    String activityChoisi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,10 +25,21 @@ public class AcceuilActivity extends AppCompatActivity {
         txtPersonne = findViewById(R.id.personneTxt);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.accueil);
+        //nomUser = getIntent().getStringExtra("nomUser");
+        activityChoisi = getIntent().getStringExtra("activity");
+
+        if (activityChoisi != null){
+            if(activityChoisi.equals("connexion")){
+                nomUser = ConnexionActivity.nomPrenom;
+            }
+            else if(activityChoisi.equals("inscription")){
+                nomUser = InscriptionActivity.nomPrenom;
+            }
+        }
 
         //if (ConnexionActivity.)
-        txtPersonne.setText(ConnexionActivity.nomPrenom);
-        txtPersonne.setText(InscriptionActivity.nomPrenom);
+        txtPersonne.setText("Bienvenue " + nomUser);
+        //txtPersonne.setText(InscriptionActivity.nomPrenom);
 
         configureNavigationView();
     }
@@ -62,7 +74,9 @@ public class AcceuilActivity extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.profile:
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    Intent profileIntent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    //profileIntent.putExtra("nomUser",ConnexionActivity.nomPrenom);
+                    startActivity(profileIntent);
                     overridePendingTransition(0,0);
                     finish();
                     return true;

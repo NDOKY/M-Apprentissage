@@ -62,6 +62,11 @@ public class aProposActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     finish();
                     return true;
+                case R.id.deconnexion:
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    overridePendingTransition(0, 0);
+                    finish();
+                    return true;
             }
             return false;
         });

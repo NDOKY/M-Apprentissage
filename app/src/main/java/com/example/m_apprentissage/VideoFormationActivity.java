@@ -66,12 +66,57 @@ public class VideoFormationActivity extends AppCompatActivity {
         return getIntent().getStringExtra("COURS");
     }
     public void InitListe(){
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("video01");
-        arrayList.add("video02");
+        ArrayList<String> cSharpArrayList = new ArrayList<>();
+        cSharpArrayList.add("DataTypes");
+        cSharpArrayList.add("HelloWorld");
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
-        listeVideo.setAdapter(arrayAdapter);
+        ArrayList<String> javaArrayList = new ArrayList<>();
+        javaArrayList.add("The JDK");
+        javaArrayList.add("Variables");
+
+        ArrayList<String> phpArrayList = new ArrayList<>();
+        phpArrayList.add("Cookies");
+        phpArrayList.add("DateTime");
+
+        ArrayList<String> comptabiliteArrayList = new ArrayList<>();
+        comptabiliteArrayList.add("La TVA");
+        comptabiliteArrayList.add("Notion de bilan");
+        comptabiliteArrayList.add("Structure du bilan");
+
+        ArrayList<String> droitArrayList = new ArrayList<>();
+        droitArrayList.add("Droit privé et droit public");
+        droitArrayList.add("Le fait juridique");
+
+        ArrayList<String> statArrayList = new ArrayList<>();
+        statArrayList.add("Controle statistique");
+        statArrayList.add("Estimation statistique");
+
+        if(coursRecuperer.equals("JAVA")){
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, javaArrayList);
+            listeVideo.setAdapter(arrayAdapter);
+        }
+        else if(coursRecuperer.equals("PHP")){
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, phpArrayList);
+            listeVideo.setAdapter(arrayAdapter);
+        }
+        else if(coursRecuperer.equals("CSharp")){
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cSharpArrayList);
+            listeVideo.setAdapter(arrayAdapter);
+        }
+
+        if(coursRecuperer.equals("Comptabilité")){
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, comptabiliteArrayList);
+            listeVideo.setAdapter(arrayAdapter);
+        }
+        else if(coursRecuperer.equals("Statistique")){
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, statArrayList);
+            listeVideo.setAdapter(arrayAdapter);
+        }
+        else if(coursRecuperer.equals("Droit")){
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, droitArrayList);
+            listeVideo.setAdapter(arrayAdapter);
+        }
+
     }
     public void configureNavigationView(){
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
